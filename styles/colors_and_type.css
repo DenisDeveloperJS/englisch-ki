@@ -1,0 +1,183 @@
+/* =========================================================================
+   itemis Design System — Colors & Typography
+   Source: itemis Corporate Design Manual 2022 (v. 17.01.2023)
+   ========================================================================= */
+
+/* ------------------------------ Fonts ---------------------------------- */
+@font-face { font-family: "Montserrat"; font-weight: 400; font-style: normal; src: url("fonts/Montserrat-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Montserrat"; font-weight: 500; font-style: normal; src: url("fonts/Montserrat-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Montserrat"; font-weight: 600; font-style: normal; src: url("fonts/Montserrat-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "Montserrat"; font-weight: 700; font-style: normal; src: url("fonts/Montserrat-Bold.ttf") format("truetype"); }
+@font-face { font-family: "Montserrat"; font-weight: 700; font-style: italic; src: url("fonts/Montserrat-BoldItalic.ttf") format("truetype"); }
+
+@font-face { font-family: "Roboto"; font-weight: 300; font-style: normal; src: url("fonts/Roboto-Light.ttf") format("truetype"); }
+@font-face { font-family: "Roboto"; font-weight: 300; font-style: italic; src: url("fonts/Roboto-LightItalic.ttf") format("truetype"); }
+@font-face { font-family: "Roboto"; font-weight: 400; font-style: normal; src: url("fonts/Roboto-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Roboto"; font-weight: 700; font-style: normal; src: url("fonts/Roboto-Bold.ttf") format("truetype"); }
+
+@font-face { font-family: "Roboto Mono"; font-weight: 300; font-style: normal; src: url("fonts/RobotoMono-Light.ttf") format("truetype"); }
+@font-face { font-family: "Roboto Mono"; font-weight: 400; font-style: normal; src: url("fonts/RobotoMono-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Roboto Mono"; font-weight: 700; font-style: normal; src: url("fonts/RobotoMono-Bold.ttf") format("truetype"); }
+
+@font-face { font-family: "Kalam"; font-weight: 300; font-style: normal; src: url("fonts/Kalam-Light.ttf") format("truetype"); }
+@font-face { font-family: "Kalam"; font-weight: 400; font-style: normal; src: url("fonts/Kalam-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Kalam"; font-weight: 700; font-style: normal; src: url("fonts/Kalam-Bold.ttf") format("truetype"); }
+
+:root {
+  /* ---------- Primary colors ---------- */
+  --itemis-blue:       #00457C;  /* RGB 0/69/124   — Pantone 7693 */
+  --itemis-blue-dark:  #001935;  /* RGB 0/25/53    — Pantone 289  */
+  --itemis-cyan:       #009FE3;  /* RGB 0/159/227  — Pantone 2925 */
+  --itemis-cyan-dark:  #004771;  /* RGB 0/71/113   — Pantone 7694 */
+  --itemis-grey:       #F1F4F6;  /* RGB 241/244/246— Pantone 663  */
+
+  /* 50% tint of itemis Blue (used in light gradients) */
+  --itemis-blue-50:    #7FA1BD;
+
+  /* ---------- Secondary palette (warm, expressive) ---------- */
+  --bordeaux:          #9D164F;
+  --bordeaux-dark:     #6B0D33;
+  --berry:             #9D3189;
+  --berry-dark:        #74226E;
+  --purple:            #6B2B82;
+  --purple-dark:       #4F1D5F;
+  --orange:            #EC6726;
+  --orange-dark:       #C0381B;
+  --yellow:            #FBE100;
+  --yellow-dark:       #D6A000;
+  --green:             #00A26D;
+  --green-dark:        #00774F;
+  --aqua:              #00A7BD;
+  --aqua-dark:         #00778A;
+  --turquoise:         #00738C;
+  --turquoise-dark:    #005162;
+
+  /* ---------- Neutrals (derived scale on top of Grey #F1F4F6) ---------- */
+  --white:   #FFFFFF;
+  --grey-50: #F8FAFB;
+  --grey-100:#F1F4F6;
+  --grey-200:#E2E8ED;
+  --grey-300:#C9D2D9;
+  --grey-400:#9AA7B1;
+  --grey-500:#6B7984;
+  --grey-600:#4B5862;
+  --grey-700:#2F3941;
+  --grey-800:#1A2128;
+  --black:   #000000;
+
+  /* ---------- Semantic foreground / background ---------- */
+  --fg-1: var(--itemis-blue-dark);   /* primary text */
+  --fg-2: var(--grey-700);           /* secondary text */
+  --fg-3: var(--grey-500);           /* tertiary / meta */
+  --fg-on-blue: #FFFFFF;
+  --fg-link: var(--itemis-blue);
+  --fg-link-hover: var(--itemis-cyan);
+
+  --bg-1: #FFFFFF;                   /* primary surface */
+  --bg-2: var(--grey-100);           /* stage / section */
+  --bg-3: var(--grey-200);           /* raised subtle */
+  --bg-inverse: var(--itemis-blue-dark);
+  --bg-brand: var(--itemis-blue);
+
+  --border-subtle: var(--grey-200);
+  --border-default: var(--grey-300);
+  --border-strong: var(--grey-500);
+
+  /* ---------- Brand gradients ---------- */
+  --grad-blue-light:  linear-gradient(135deg, var(--itemis-blue)      0%, var(--itemis-blue-50)  100%);
+  --grad-blue-dark:   linear-gradient(135deg, var(--itemis-blue)      0%, var(--itemis-blue-dark)100%);
+  --grad-cyan-dark:   linear-gradient(135deg, var(--itemis-cyan)      0%, var(--itemis-cyan-dark)100%);
+  --grad-hero:        linear-gradient(135deg, var(--itemis-cyan) 0%, var(--itemis-blue) 55%, var(--itemis-blue-dark) 100%);
+
+  /* ---------- Type families ---------- */
+  --font-display: "Montserrat", "Helvetica Neue", Arial, sans-serif; /* headlines — Bold */
+  --font-body:    "Roboto", "Helvetica Neue", Arial, sans-serif;     /* fließtext — Light */
+  --font-mono:    "Roboto Mono", ui-monospace, Menlo, monospace;     /* code */
+  --font-accent:  "Kalam", "Comic Sans MS", cursive;                 /* accents / Störer */
+
+  /* ---------- Type scale (derived from A4 grid, GR 13.3 pt) ----------
+     1:  25pt / 30pt         — Titelseiten-Headline
+     2:  15.6pt / 21.8pt     — Titelseiten-Subheadline
+     3:  19pt / 22.8pt       — Seitenheadline
+     4:  15.2pt / 18.24pt    — Thema
+     5:  9.5pt / 13.3pt      — Fließtext
+     6:  12pt / 14.4pt       — Unterthema 1
+     7:  10.5pt / 12.6pt     — Unterthema 2
+     8:  9.5pt / 13.3pt      — Fließtext Bold
+     9:  8pt   / 11.2pt      — Caption
+     10: 6.5pt / 9.1pt       — Copyright                              */
+  --fs-display-xl: 56px;  --lh-display-xl: 1.1;   /* web hero */
+  --fs-display:    40px;  --lh-display:    1.15;  /* page H1  */
+  --fs-h1:         32px;  --lh-h1:         1.2;
+  --fs-h2:         24px;  --lh-h2:         1.2;
+  --fs-h3:         20px;  --lh-h3:         1.2;
+  --fs-h4:         16px;  --lh-h4:         1.2;
+  --fs-body:       16px;  --lh-body:       1.5;   /* Roboto 1.4× min, 1.5 web */
+  --fs-body-sm:    14px;  --lh-body-sm:    1.5;
+  --fs-caption:    12px;  --lh-caption:    1.4;
+  --fs-micro:      10px;  --lh-micro:      1.3;
+
+  /* ---------- Spacing (8px base; 4px half-step) ---------- */
+  --sp-0: 0;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --sp-10:128px;
+
+  /* ---------- Radius — manual says NO rounded ends on icons; we keep
+     UI radii tight/square-ish for brand alignment ---------- */
+  --radius-0: 0px;
+  --radius-1: 2px;
+  --radius-2: 4px;
+  --radius-3: 8px;
+  --radius-pill: 999px;
+
+  /* ---------- Elevation (subtle — brand is flat) ---------- */
+  --shadow-1: 0 1px 2px rgba(0,25,53,.06), 0 1px 1px rgba(0,25,53,.04);
+  --shadow-2: 0 2px 6px rgba(0,25,53,.08), 0 1px 2px rgba(0,25,53,.05);
+  --shadow-3: 0 8px 24px rgba(0,25,53,.10), 0 2px 6px rgba(0,25,53,.06);
+  --shadow-focus: 0 0 0 3px rgba(0,159,227,.35); /* cyan activation ring */
+
+  /* ---------- Motion ---------- */
+  --ease-standard: cubic-bezier(.2,.8,.2,1);
+  --ease-emphasized: cubic-bezier(.3,.7,.1,1);
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+  --dur-3: 320ms;
+}
+
+/* ===================== Base / Semantic Elements ===================== */
+html { font-family: var(--font-body); color: var(--fg-1); background: var(--bg-1); -webkit-font-smoothing: antialiased; }
+body { margin: 0; font-weight: 300; font-size: var(--fs-body); line-height: var(--lh-body); }
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 700; color: var(--fg-1); margin: 0 0 var(--sp-3); letter-spacing: -0.01em; }
+h1 { font-size: var(--fs-display); line-height: var(--lh-display); }
+h2 { font-size: var(--fs-h1);      line-height: var(--lh-h1); }
+h3 { font-size: var(--fs-h2);      line-height: var(--lh-h2); }
+h4 { font-size: var(--fs-h3);      line-height: var(--lh-h3); }
+h5 { font-size: var(--fs-h4);      line-height: var(--lh-h4); }
+
+p   { margin: 0 0 var(--sp-4); font-weight: 300; }
+strong, b { font-weight: 700; }              /* Hervorhebungen immer Bold */
+em, i { font-style: italic; }
+
+a { color: var(--fg-link); text-decoration: none; border-bottom: 1px solid transparent; transition: color var(--dur-1) var(--ease-standard), border-color var(--dur-1); }
+a:hover { color: var(--fg-link-hover); border-bottom-color: currentColor; }
+
+code, pre, kbd, samp { font-family: var(--font-mono); font-size: 0.95em; }
+pre { background: var(--grey-100); border: 1px solid var(--border-subtle); padding: var(--sp-4); overflow-x: auto; }
+code { background: var(--grey-100); padding: 0 4px; }
+
+small, .caption { font-size: var(--fs-caption); color: var(--fg-3); }
+.accent-hand { font-family: var(--font-accent); font-weight: 700; color: var(--itemis-cyan); }  /* Störer */
+
+/* Utility */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-5); }
+.on-brand  { background: var(--bg-brand); color: var(--fg-on-blue); }
+.on-brand h1, .on-brand h2, .on-brand h3, .on-brand h4, .on-brand h5 { color: #fff; }

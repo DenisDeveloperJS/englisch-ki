@@ -1,0 +1,211 @@
+<!--
+  ╔══════════════════════════════════════════════════════════════════════════╗
+  ║  STILVORLAGE — Terminal-Theme "KI im Code"                              ║
+  ║                                                                          ║
+  ║  Gib diese Datei einer KI und sag ihr deinen Inhalt.                    ║
+  ║  Sie baut deine Folien im gleichen Stil.                                ║
+  ╚══════════════════════════════════════════════════════════════════════════╝
+
+  ── FARBEN ─────────────────────────────────────────────────────────────────
+    Hintergrund (Folie):   #070B0F  → fast schwarz, leicht blaugrün
+    Karten-Fläche:         #0D1520  → dunkelblau
+    Grün (Hauptakzent):    #00FF9C  → Neon-Grün  → var(--t-green)
+    Cyan (2. Akzent):      #00D4FF  → Neon-Cyan  → var(--t-cyan)
+    Orange (Warnung):      #FF6B35              → var(--t-orange)
+    Rot (Fehler):          #FF3864              → var(--t-red)
+    Text:                  #B8D4C0  → helles Mintgrün-Grau
+    Gedimmter Text:        rgba(200,230,210,0.45) → var(--t-dim)
+    Rahmen:                #1A3A2A  → dunkles Grün → var(--t-border)
+
+  ── SCHRIFT ────────────────────────────────────────────────────────────────
+    ALLES: Roboto Mono (monospace) — kein serif, kein sans-serif
+    Überschriften (h1): Roboto Mono Bold, ~80–128px, Farbe --t-green
+    Unterüberschriften (h3): Roboto Mono Bold, 32px, Farbe --t-cyan
+    Fließtext: Roboto Mono Regular, 22px, Farbe --t-text
+    Labels/Eyebrow: uppercase, letter-spacing, vorangestellt mit "// "
+
+  ── FOLIENTYPEN ────────────────────────────────────────────────────────────
+    Cover/Titelfolie:    <section class="slide">  mit brand-bar (grüner Strich links)
+    Kapitel-Trenner:     <section class="slide">  vollflächig, zentriert, $ cd ./thema
+    Inhaltsfolie:        <section class="slide">  mit .frame und .title-block
+    Schlussfolie:        wie Cover, h1 mit blinkenden Cursor-Effekt "_"
+
+  ── LAYOUT-RASTER ──────────────────────────────────────────────────────────
+    .grid-2  → 2 gleiche Spalten (gap: 64px)
+    .grid-3  → 3 Spalten (gap: 32px)
+    .grid-4  → 4 Spalten (gap: 24px)
+    .col     → flex column, gap 24px
+
+  ── KOMPONENTEN ────────────────────────────────────────────────────────────
+    .eyebrow          → Label über Titel, uppercase, // vorangestellt
+    .card.card--accent → Karte mit grünem Rand links (border-left: 3px solid --t-green)
+    .bullets          → Liste, Bullet ist ">" in Grün
+    .bullets--check   → Liste, Bullet ist "[OK]" in Grün
+    .bullets--cross   → Liste, Bullet ist "[ERR]" in Rot
+    .codebox          → Code-Block dunkel mit Cyan-Rand links, Monospace
+    .slide-footer     → Footer: Name links, Seitenzahl rechts (.pageno LEER lassen)
+    .brand-bar        → vertikaler grüner Strich ganz links (nur Cover/Schluss)
+
+  ── TERMINAL-MUSTER ────────────────────────────────────────────────────────
+    Kapitel-Folie:   $ cd ./thema  (in --t-green oder --t-cyan)
+    Cover-Prompt:    $ ./präsentation --thema "..." --start
+    Eyebrow:         // ABSCHNITT_01  oder  // Kategorie · Unterkategorie
+    Warn-Labels:     WARN: SECURITY / WARN: TRUST / [OK] / [ERR]
+    Trennlinie:      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  (in --t-dim)
+    Cursor:          <span style="color:var(--t-cyan);">_</span>  am Titelende
+
+  ── REGELN ─────────────────────────────────────────────────────────────────
+    - .pageno immer LEER lassen — wird automatisch gesetzt
+    - Jede Folie = ein <section class="slide"> Block
+    - Keine abgerundeten Ecken (border-radius: 0)
+    - Scanlines kommen automatisch über CSS (section.slide::before)
+    - Logo-Bilder mit opacity:0.15 und filter:grayscale(1) → dezent halten
+    - Inline style="" ist überall erlaubt
+    - Risiko-Karten: border-left in --t-orange statt --t-green
+    - Kapitel-Akzentfarben: Geschichte=grün, Anwendung=cyan, Risiken=orange
+-->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     MUSTER 1: COVER / TITELFOLIE
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="brand-bar"></div>
+
+  <div class="frame frame--center">
+    <div style="display:flex; flex-direction:column; gap:40px;">
+      <div style="font-family:var(--t-font); font-size:15px; color:var(--t-green); opacity:0.7;">
+        $ ./präsentation --thema "dein-thema" --start
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="eyebrow">Datum · Anlass</div>
+        <h1 style="font-size:128px !important; line-height:0.95 !important; letter-spacing:-0.02em !important;">
+          Haupttitel<br>
+          <span style="color:var(--t-cyan);">Akzentwort</span>
+        </h1>
+        <p style="font-size:28px !important; color:var(--t-dim); max-width:1000px;">
+          Kurze Beschreibung in einem Satz.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="meta"><span style="color:var(--t-dim); font-family:var(--t-font);">dateiname.html</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     MUSTER 2: KAPITEL-TRENNER
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide" style="justify-content:center; align-items:center;">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:32px; text-align:center;">
+    <div style="font-family:var(--t-font); font-size:16px; color:var(--t-dim); letter-spacing:0.15em;">// ABSCHNITT_01</div>
+    <div style="font-family:var(--t-font); font-size:18px; color:var(--t-green);">$ cd ./kapitel-name</div>
+    <h1 style="font-size:140px !important; line-height:1 !important; letter-spacing:-0.03em !important;">Kapitel</h1>
+    <p style="font-size:28px !important; color:var(--t-dim);">Optionaler Untertitel.</p>
+    <div style="font-family:var(--t-font); font-size:14px; color:var(--t-dim);">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Vortragende:r</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     MUSTER 3: INHALTSFOLIE MIT 3 KARTEN
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="frame">
+    <div class="title-block" style="margin-bottom:56px;">
+      <div class="eyebrow">Kategorie · Unterkategorie</div>
+      <h1>Folientitel hier.</h1>
+    </div>
+    <div class="grid-3" style="gap:32px;">
+      <div class="card card--accent" style="gap:20px;">
+        <div style="font-family:var(--t-font); color:var(--t-green); font-size:13px; letter-spacing:0.1em; font-weight:700;">LABEL_01</div>
+        <h3>Punkt Eins</h3>
+        <p>Beschreibungstext. Kurz und prägnant, auf den Punkt.</p>
+      </div>
+      <div class="card card--accent" style="gap:20px;">
+        <div style="font-family:var(--t-font); color:var(--t-green); font-size:13px; letter-spacing:0.1em; font-weight:700;">LABEL_02</div>
+        <h3>Punkt Zwei</h3>
+        <p>Beschreibungstext. Kurz und prägnant, auf den Punkt.</p>
+      </div>
+      <div class="card card--accent" style="gap:20px;">
+        <div style="font-family:var(--t-font); color:var(--t-green); font-size:13px; letter-spacing:0.1em; font-weight:700;">LABEL_03</div>
+        <h3>Punkt Drei</h3>
+        <p>Beschreibungstext. Kurz und prägnant, auf den Punkt.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Vortragende:r</span><span style="color:var(--t-dim);">Abschnitt 01</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     MUSTER 4: INHALTSFOLIE MIT 2 SPALTEN + BULLETS
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="frame">
+    <div class="title-block" style="margin-bottom:56px;">
+      <div class="eyebrow">Kategorie · Vergleich</div>
+      <h1>Zwei Seiten einer Sache.</h1>
+    </div>
+    <div class="grid-2" style="gap:64px; align-items:flex-start;">
+      <div class="col" style="gap:24px;">
+        <h3 style="color:var(--t-green) !important;">[OK] Positiv</h3>
+        <ul class="bullets--check bullets">
+          <li>Erster Vorteil</li>
+          <li>Zweiter Vorteil</li>
+          <li>Dritter Vorteil</li>
+        </ul>
+      </div>
+      <div class="col" style="gap:24px;">
+        <h3 style="color:var(--t-red) !important;">[ERR] Negativ</h3>
+        <ul class="bullets--cross bullets">
+          <li>Erster Nachteil</li>
+          <li>Zweiter Nachteil</li>
+          <li>Dritter Nachteil</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Vortragende:r</span><span style="color:var(--t-dim);">Abschnitt 01</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     MUSTER 5: SCHLUSSFOLIE
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="brand-bar"></div>
+  <div class="frame frame--center">
+    <div style="display:flex; flex-direction:column; gap:40px;">
+      <div style="font-family:var(--t-font); font-size:15px; color:var(--t-dim);">$ ./präsentation --end</div>
+      <h1 style="font-size:110px !important; line-height:0.95 !important;">
+        Vielen Dank.<span style="color:var(--t-cyan);">_</span>
+      </h1>
+      <p style="font-size:28px !important; color:var(--t-dim);">Fragen? Feedback?</p>
+      <div style="font-family:var(--t-font); font-size:16px; color:var(--t-dim); border-top:1px solid var(--t-border); padding-top:32px; display:flex; gap:64px;">
+        <div>
+          <div style="color:var(--t-green); margin-bottom:6px;">name@itemis.com</div>
+          <div>Vorname Nachname</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span style="font-family:var(--t-font); color:var(--t-dim);">dateiname.html — EOF</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>

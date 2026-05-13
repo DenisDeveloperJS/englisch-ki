@@ -1,0 +1,197 @@
+/* =========================================================================
+   TERMINAL THEME — KI im Code
+   Überschreibt itemis-Farben komplett.
+   Laden nach deck.css in index.html.
+   ========================================================================= */
+
+:root {
+  --t-bg:       #070B0F;   /* fast schwarz, leicht blau */
+  --t-surface:  #0D1520;   /* Karten-Hintergrund */
+  --t-surface2: #111D2E;   /* tiefere Ebene */
+  --t-border:   #1A3A2A;   /* grüne Rahmen */
+  --t-border2:  #0F2A3A;   /* blaue Rahmen */
+  --t-green:    #00FF9C;   /* Neon-Grün — Hauptakzent */
+  --t-cyan:     #00D4FF;   /* Neon-Cyan — zweiter Akzent */
+  --t-orange:   #FF6B35;   /* Warnung / Risiko */
+  --t-red:      #FF3864;   /* Fehler */
+  --t-dim:      rgba(200,230,210,0.45);  /* dimmer Text */
+  --t-text:     #B8D4C0;   /* Haupttext */
+  --t-font:     "Roboto Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+/* ── Globale Slide-Basis ─────────────────────────────────── */
+section.slide {
+  background: var(--t-bg) !important;
+  color: var(--t-text) !important;
+  font-family: var(--t-font) !important;
+  font-weight: 400 !important;
+}
+
+/* Scanline-Overlay auf jeder Folie */
+section.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,0.08) 3px,
+    rgba(0,0,0,0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ── Typographie ─────────────────────────────────────────── */
+section.slide h1,
+section.slide h2,
+section.slide h3,
+section.slide h4 {
+  font-family: var(--t-font) !important;
+  color: var(--t-green) !important;
+  letter-spacing: 0 !important;
+}
+
+section.slide h1 { font-size: 80px !important; font-weight: 700 !important; line-height: 1.1 !important; }
+section.slide h2 { font-size: 56px !important; font-weight: 700 !important; }
+section.slide h3 { font-size: 32px !important; font-weight: 700 !important; color: var(--t-cyan) !important; }
+section.slide h4 { font-size: 22px !important; color: var(--t-green) !important; }
+
+section.slide p,
+section.slide li {
+  font-family: var(--t-font) !important;
+  color: var(--t-text) !important;
+  font-size: 22px !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+}
+
+/* Eyebrow → Prompt-Style */
+section.slide .eyebrow {
+  font-family: var(--t-font) !important;
+  color: var(--t-dim) !important;
+  font-size: 16px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  font-weight: 400 !important;
+}
+section.slide .eyebrow::before {
+  content: "// ";
+  color: var(--t-green);
+  opacity: 0.7;
+}
+
+/* ── Cards ───────────────────────────────────────────────── */
+section.slide .card,
+section.slide .card--accent,
+section.slide .card--ghost {
+  background: var(--t-surface) !important;
+  border: 1px solid var(--t-border) !important;
+  border-top: none !important;
+  border-radius: 0 !important;
+  color: var(--t-text) !important;
+}
+section.slide .card--accent {
+  border-left: 3px solid var(--t-green) !important;
+}
+section.slide .card h3,
+section.slide .card h4 {
+  color: var(--t-cyan) !important;
+}
+section.slide .card p,
+section.slide .card li {
+  color: var(--t-text) !important;
+}
+
+/* ── Bullets ─────────────────────────────────────────────── */
+section.slide .bullets li::before {
+  content: ">" !important;
+  background: none !important;
+  color: var(--t-green) !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  font-family: var(--t-font) !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  margin-top: 0 !important;
+  line-height: 1.6 !important;
+}
+section.slide .bullets--check li::before {
+  content: "[OK]" !important;
+  background: none !important;
+  background-image: none !important;
+  color: var(--t-green) !important;
+  width: auto !important;
+  height: auto !important;
+  font-family: var(--t-font) !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  margin-top: 2px !important;
+}
+section.slide .bullets--cross li::before {
+  content: "[ERR]" !important;
+  background: none !important;
+  background-image: none !important;
+  color: var(--t-red) !important;
+  width: auto !important;
+  height: auto !important;
+  font-family: var(--t-font) !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  margin-top: 2px !important;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+section.slide .slide-footer {
+  color: var(--t-dim) !important;
+  font-family: var(--t-font) !important;
+  font-size: 15px !important;
+  border-top: 1px solid var(--t-border) !important;
+  padding-top: 12px !important;
+}
+section.slide .slide-footer .speaker {
+  color: var(--t-green) !important;
+  font-weight: 700 !important;
+}
+section.slide .slide-footer .speaker::before {
+  background: var(--t-green) !important;
+}
+section.slide .slide-footer .pageno {
+  color: var(--t-dim) !important;
+}
+
+/* ── Code box ────────────────────────────────────────────── */
+section.slide .codebox {
+  background: var(--t-surface2) !important;
+  border-left: 3px solid var(--t-cyan) !important;
+  color: var(--t-cyan) !important;
+  font-family: var(--t-font) !important;
+  border-radius: 0 !important;
+}
+
+/* ── Logo ausblenden ─────────────────────────────────────── */
+section.slide .slide-logo {
+  opacity: 0.15 !important;
+  filter: grayscale(1) !important;
+}
+
+/* ── brand-bar → grüne Linie ─────────────────────────────── */
+section.slide .brand-bar {
+  background: var(--t-green) !important;
+  width: 4px !important;
+}
+
+/* ── Bignum ──────────────────────────────────────────────── */
+section.slide .bignum {
+  color: var(--t-green) !important;
+  font-family: var(--t-font) !important;
+}
+
+/* ── Stat ────────────────────────────────────────────────── */
+section.slide .stat .v { color: var(--t-green) !important; }
+section.slide .stat .l { color: var(--t-dim) !important; }
+
+/* Deck-Stage Hintergrund */
+deck-stage { background: #000 !important; }
