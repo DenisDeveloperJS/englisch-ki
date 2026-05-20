@@ -1,0 +1,741 @@
+<!-- ═══════════════════════════════════════════════════════
+     VASILII — Modern Application Forms
+     4 Folien · Abschnitt 02
+     ═══════════════════════════════════════════════════════ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOLIE 1 — KAPITEL-TRENNER
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide" style="justify-content:center; align-items:center;">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:28px; text-align:center;">
+    <div style="font-family:var(--t-font); font-size:15px; color:var(--t-dim); letter-spacing:0.15em;">// ABSCHNITT_02 · Modern Application Forms</div>
+    <div style="font-family:var(--t-font); font-size:17px; color:var(--t-green);">$ cd ./modern-ai-integration</div>
+    <h1 style="font-size:120px !important; line-height:1 !important; letter-spacing:-0.03em !important; max-width:1400px;">
+      Beyond the<br>
+      <span style="color:var(--t-cyan);">Chatbot_</span>
+    </h1>
+    <p style="font-size:24px !important; color:var(--t-dim); max-width:900px;">
+      Three ways developers use AI in their daily workflow.
+    </p>
+    <div style="display:flex; gap:56px; margin-top:8px;">
+      <div style="font-family:var(--t-font); font-size:14px; color:var(--t-green); letter-spacing:0.08em;">[01] Web &amp; Multimodal</div>
+      <div style="font-family:var(--t-font); font-size:14px; color:var(--t-cyan); letter-spacing:0.08em;">[02] IDE &amp; Agents</div>
+      <div style="font-family:var(--t-font); font-size:14px; color:var(--t-orange); letter-spacing:0.08em;">[03] Skills &amp; Automation</div>
+    </div>
+    <div style="font-family:var(--t-font); font-size:13px; color:var(--t-dim);">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Vasilii Panov</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOLIE 2 — APPROACH 1: WEB & MULTIMODAL
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="frame">
+    <div class="title-block" style="margin-bottom:28px;">
+      <div class="eyebrow">Approach 01 · The Advisor</div>
+      <h1 style="font-size:64px !important; line-height:1.05 !important;">Web Interfaces &amp; Multimodal Capabilities.</h1>
+    </div>
+
+    <div class="grid-2" style="gap:56px; align-items:flex-start; flex:1;">
+
+      <!-- Left -->
+      <div class="col" style="gap:20px;">
+        <div class="card card--accent" style="padding:18px 22px; gap:10px;">
+          <div style="font-family:var(--t-font); color:var(--t-green); font-size:11px; letter-spacing:0.12em; font-weight:700;">THE_WORKFLOW</div>
+          <p style="font-size:24px !important; line-height:1.5 !important;">Web browsers or dedicated apps — ChatGPT, Claude, Gemini.</p>
+        </div>
+
+        <h3 style="font-size:26px !important;">Key Capabilities</h3>
+        <ul class="bullets--check bullets" style="gap:10px;">
+          <li><span style="color:var(--t-text); font-size:24px !important; line-height:1.5 !important;">Visual Debugging — paste screenshots of bugs or code for instant analysis</span></li>
+          <li><span style="color:var(--t-text); font-size:24px !important; line-height:1.5 !important;">Context Uploads — upload entire project folders or repositories</span></li>
+          <li><span style="color:var(--t-text); font-size:24px !important; line-height:1.5 !important;">AI sees the full codebase at once</span></li>
+        </ul>
+
+        <div class="codebox" style="font-size:14px; padding:16px 20px; line-height:1.8;">
+          <span style="color:var(--t-dim);"># workflow</span><br>
+          screenshot → paste → <span style="color:var(--t-cyan);">ask AI</span> → fix<br>
+          folder → upload → <span style="color:var(--t-cyan);">full context</span> → analyze
+        </div>
+      </div>
+
+      <!-- Right: image slider -->
+      <div style="
+        height:100%;
+        min-height:380px;
+        position:relative;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        overflow:hidden;
+      ">
+        <!-- Images -->
+        <img data-gallery="slide2" src="../Bildschirmfoto 2026-05-20 um 10.42.51.png"
+             alt="ChatGPT — screenshot upload + chat response"
+             style="width:100%; height:100%; object-fit:contain; border-radius:6px; position:absolute; inset:0; transition:opacity 0.3s;" />
+        <img data-gallery="slide2" src="../nehme_das_bidl_so_wie_202605201152.jpeg"
+             alt="Gemini — multimodal upload menu"
+             style="width:100%; height:100%; object-fit:contain; border-radius:6px; position:absolute; inset:0; opacity:0; transition:opacity 0.3s;" />
+
+        <!-- Left arrow -->
+        <button onclick="(function(btn){
+          var imgs=btn.closest('div').querySelectorAll('img[data-gallery]');
+          var dots=btn.closest('div').querySelectorAll('span[data-dot]');
+          var cur=0; imgs.forEach(function(el,i){if(parseFloat(el.style.opacity||1)>0.5)cur=i;});
+          imgs[cur].style.opacity='0'; dots[cur].style.opacity='0.35';
+          cur=(cur-1+imgs.length)%imgs.length;
+          imgs[cur].style.opacity='1'; dots[cur].style.opacity='1';
+        })(this)" style="
+          position:absolute; left:8px; top:50%; transform:translateY(-50%);
+          background:rgba(0,0,0,0.55); border:1px solid rgba(255,255,255,0.18);
+          color:#fff; border-radius:50%; width:36px; height:36px;
+          font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+          z-index:10; line-height:1;
+        ">&#8249;</button>
+
+        <!-- Right arrow -->
+        <button onclick="(function(btn){
+          var imgs=btn.closest('div').querySelectorAll('img[data-gallery]');
+          var dots=btn.closest('div').querySelectorAll('span[data-dot]');
+          var cur=0; imgs.forEach(function(el,i){if(parseFloat(el.style.opacity||1)>0.5)cur=i;});
+          imgs[cur].style.opacity='0'; dots[cur].style.opacity='0.35';
+          cur=(cur+1)%imgs.length;
+          imgs[cur].style.opacity='1'; dots[cur].style.opacity='1';
+        })(this)" style="
+          position:absolute; right:8px; top:50%; transform:translateY(-50%);
+          background:rgba(0,0,0,0.55); border:1px solid rgba(255,255,255,0.18);
+          color:#fff; border-radius:50%; width:36px; height:36px;
+          font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+          z-index:10; line-height:1;
+        ">&#8250;</button>
+
+        <!-- Dots -->
+        <div style="position:absolute; bottom:8px; left:50%; transform:translateX(-50%); display:flex; gap:6px; z-index:10;">
+          <span data-dot style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:1;display:block;"></span>
+          <span data-dot style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:0.35;display:block;"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Vasilii Panov</span><span style="color:var(--t-dim);">Modern AI Integration</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOLIE 2b — PROBLEM: WEB WORKFLOW LIMITS
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="frame">
+    <div class="title-block" style="margin-bottom:36px;">
+      <div class="eyebrow">Approach 01 · The Limits</div>
+      <h1 style="font-size:72px !important; line-height:1.05 !important;">But it <span style="color:var(--t-red);">slows you down_</span></h1>
+    </div>
+
+    <div class="grid-2" style="gap:56px; align-items:stretch; flex:1;">
+
+      <!-- Left: problems -->
+      <div class="col" style="gap:0; justify-content:space-between;">
+        <div style="font-family:var(--t-font); font-size:12px; color:var(--t-red); letter-spacing:0.15em; font-weight:700;">// PAIN_POINTS</div>
+
+        <ul class="bullets" style="gap:22px; list-style:none; padding:0; margin:0; flex:1; justify-content:space-evenly; display:flex; flex-direction:column; padding-top:16px;">
+          <li style="display:flex; gap:12px; align-items:flex-start;">
+            <span style="color:var(--t-red); font-family:var(--t-font); font-size:16px; margin-top:3px; flex-shrink:0;">[✗]</span>
+            <span style="font-size:30px !important; line-height:1.45 !important;">Constant context switching — browser tab ↔ editor, back and forth</span>
+          </li>
+          <li style="display:flex; gap:12px; align-items:flex-start;">
+            <span style="color:var(--t-red); font-family:var(--t-font); font-size:16px; margin-top:3px; flex-shrink:0;">[✗]</span>
+            <span style="font-size:30px !important; line-height:1.45 !important;">Manual copy/paste — code from AI into editor, errors back into browser</span>
+          </li>
+          <li style="display:flex; gap:12px; align-items:flex-start;">
+            <span style="color:var(--t-red); font-family:var(--t-font); font-size:16px; margin-top:3px; flex-shrink:0;">[✗]</span>
+            <span style="font-size:30px !important; line-height:1.45 !important;">No project awareness — AI only sees what you paste, not the full codebase</span>
+          </li>
+          <li style="display:flex; gap:12px; align-items:flex-start;">
+            <span style="color:var(--t-red); font-family:var(--t-font); font-size:16px; margin-top:3px; flex-shrink:0;">[✗]</span>
+            <span style="font-size:30px !important; line-height:1.45 !important;">Breaks the flow — every question costs you focus and time</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: teaser for solution -->
+      <div class="col" style="gap:18px; justify-content:center;">
+        <div style="font-family:var(--t-font); font-size:12px; color:var(--t-green); letter-spacing:0.15em; font-weight:700;">// NEXT_STEP</div>
+
+        <div class="card card--accent" style="padding:24px 28px; gap:14px;">
+          <p style="font-size:22px !important; line-height:1.5 !important; color:var(--t-text);">
+            What if the AI lives <span style="color:var(--t-cyan);">inside your editor</span> — with full access to every file?
+          </p>
+        </div>
+
+        <div class="codebox" style="font-size:14px; padding:16px 20px; line-height:1.9;">
+          <span style="color:var(--t-dim);"># the old way</span><br>
+          editor → copy → browser → paste → copy → editor<br><br>
+          <span style="color:var(--t-dim);"># the new way</span><br>
+          <span style="color:var(--t-green);">editor</span> <span style="color:var(--t-dim);">→</span> <span style="color:var(--t-cyan);">ask AI inline</span> <span style="color:var(--t-dim);">→</span> <span style="color:var(--t-green);">done</span>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:12px; margin-top:4px;">
+          <div style="height:1px; flex:1; background:var(--t-border);"></div>
+          <div style="font-family:var(--t-font); font-size:13px; color:var(--t-cyan); letter-spacing:0.1em;">→ Approach 02: IDE Agents</div>
+          <div style="height:1px; flex:1; background:var(--t-border);"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Vasilii Panov</span><span style="color:var(--t-dim);">Modern AI Integration</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOLIE 3 — APPROACH 2: IDE & AGENTS
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="frame">
+    <div class="title-block" style="margin-bottom:28px;">
+      <div class="eyebrow">Approach 02 · The Co-Pilot</div>
+      <h1 style="font-size:64px !important; line-height:1.05 !important;">Built-in AI agents in the editor.</h1>
+    </div>
+
+    <div class="grid-2" style="gap:56px; align-items:flex-start; flex:1;">
+
+      <!-- Left -->
+      <div class="col" style="gap:20px;">
+        <h3 style="font-size:24px !important;">Agent Capabilities</h3>
+        <ul class="bullets--check bullets" style="gap:8px;">
+          <li><span style="color:var(--t-text); font-size:22px !important; line-height:1.4 !important;">Deep Context — full project directory indexed at all times</span></li>
+          <li><span style="color:var(--t-text); font-size:22px !important; line-height:1.4 !important;">Autonomous Action — opens, edits, saves multiple files from one prompt</span></li>
+          <li><span style="color:var(--t-text); font-size:22px !important; line-height:1.4 !important;">No copy/paste — seamless flow, never leave the editor</span></li>
+        </ul>
+
+        <h3 style="font-size:24px !important; margin-top:4px;">Terminal-first: CLI Agents</h3>
+        <ul class="bullets--check bullets" style="gap:8px;">
+          <li><span style="color:var(--t-text); font-size:22px !important; line-height:1.4 !important;">Install an AI agent directly in your terminal — e.g. <span style="color:var(--t-cyan);">Claude Code</span></span></li>
+          <li><span style="color:var(--t-text); font-size:22px !important; line-height:1.4 !important;">Navigate to any project folder and start working — no GUI needed</span></li>
+          <li><span style="color:var(--t-text); font-size:22px !important; line-height:1.4 !important;">Reads files, runs commands, writes code — all from one prompt</span></li>
+          <li><span style="color:var(--t-text); font-size:22px !important; line-height:1.4 !important;">Works inside any IDE terminal (JetBrains, VS Code, …)</span></li>
+        </ul>
+      </div>
+
+      <!-- Right: image slider -->
+      <div style="
+        height:100%;
+        min-height:380px;
+        position:relative;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        overflow:hidden;
+      ">
+        <img data-gallery="slide3" src="../Bildschirmfoto 2026-05-20 um 10.54.44.png"
+             alt="Antigravity — AI-native editor with agent sidebar"
+             style="width:100%; height:100%; object-fit:contain; border-radius:6px; position:absolute; inset:0; transition:opacity 0.3s;" />
+        <img data-gallery="slide3" src="../Bildschirmfoto 2026-05-20 um 12.01.13.png"
+             alt="Claude Code — AI agent in terminal"
+             style="width:100%; height:100%; object-fit:contain; border-radius:6px; position:absolute; inset:0; opacity:0; transition:opacity 0.3s;" />
+
+        <!-- Left arrow -->
+        <button onclick="(function(btn){
+          var imgs=btn.closest('div').querySelectorAll('img[data-gallery]');
+          var dots=btn.closest('div').querySelectorAll('span[data-dot]');
+          var cur=0; imgs.forEach(function(el,i){if(parseFloat(el.style.opacity||1)>0.5)cur=i;});
+          imgs[cur].style.opacity='0'; dots[cur].style.opacity='0.35';
+          cur=(cur-1+imgs.length)%imgs.length;
+          imgs[cur].style.opacity='1'; dots[cur].style.opacity='1';
+        })(this)" style="
+          position:absolute; left:8px; top:50%; transform:translateY(-50%);
+          background:rgba(0,0,0,0.55); border:1px solid rgba(255,255,255,0.18);
+          color:#fff; border-radius:50%; width:36px; height:36px;
+          font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+          z-index:10; line-height:1;
+        ">&#8249;</button>
+
+        <!-- Right arrow -->
+        <button onclick="(function(btn){
+          var imgs=btn.closest('div').querySelectorAll('img[data-gallery]');
+          var dots=btn.closest('div').querySelectorAll('span[data-dot]');
+          var cur=0; imgs.forEach(function(el,i){if(parseFloat(el.style.opacity||1)>0.5)cur=i;});
+          imgs[cur].style.opacity='0'; dots[cur].style.opacity='0.35';
+          cur=(cur+1)%imgs.length;
+          imgs[cur].style.opacity='1'; dots[cur].style.opacity='1';
+        })(this)" style="
+          position:absolute; right:8px; top:50%; transform:translateY(-50%);
+          background:rgba(0,0,0,0.55); border:1px solid rgba(255,255,255,0.18);
+          color:#fff; border-radius:50%; width:36px; height:36px;
+          font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+          z-index:10; line-height:1;
+        ">&#8250;</button>
+
+        <!-- Dots -->
+        <div style="position:absolute; bottom:8px; left:50%; transform:translateX(-50%); display:flex; gap:6px; z-index:10;">
+          <span data-dot style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:1;display:block;"></span>
+          <span data-dot style="width:8px;height:8px;border-radius:50%;background:#fff;opacity:0.35;display:block;"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Vasilii Panov</span><span style="color:var(--t-dim);">Modern AI Integration</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOLIE 4b — PROBLEM: IDE AGENT LIMITS
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="frame">
+    <div class="title-block" style="margin-bottom:36px;">
+      <div class="eyebrow">Approach 02 · The Limits</div>
+      <h1 style="font-size:72px !important; line-height:1.05 !important;">Still some <span style="color:var(--t-red);">repetition_</span></h1>
+    </div>
+
+    <div class="grid-2" style="gap:56px; align-items:stretch; flex:1;">
+
+      <!-- Left: problems -->
+      <div class="col" style="gap:0; justify-content:space-between;">
+        <div style="font-family:var(--t-font); font-size:12px; color:var(--t-red); letter-spacing:0.15em; font-weight:700;">// PAIN_POINTS</div>
+
+        <ul class="bullets" style="gap:22px; list-style:none; padding:0; margin:0; flex:1; justify-content:space-evenly; display:flex; flex-direction:column; padding-top:16px;">
+          <li style="display:flex; gap:12px; align-items:flex-start;">
+            <span style="color:var(--t-red); font-family:var(--t-font); font-size:16px; margin-top:3px; flex-shrink:0;">[✗]</span>
+            <span style="font-size:30px !important; line-height:1.45 !important;">Same prompt every day — credentials, company rules, project context</span>
+          </li>
+          <li style="display:flex; gap:12px; align-items:flex-start;">
+            <span style="color:var(--t-red); font-family:var(--t-font); font-size:16px; margin-top:3px; flex-shrink:0;">[✗]</span>
+            <span style="font-size:30px !important; line-height:1.45 !important;">AI has no memory — you explain the same things over and over</span>
+          </li>
+          <li style="display:flex; gap:12px; align-items:flex-start;">
+            <span style="color:var(--t-red); font-family:var(--t-font); font-size:16px; margin-top:3px; flex-shrink:0;">[✗]</span>
+            <span style="font-size:30px !important; line-height:1.45 !important;">Complex workflows need many manual steps to trigger</span>
+          </li>
+          <li style="display:flex; gap:12px; align-items:flex-start;">
+            <span style="color:var(--t-red); font-family:var(--t-font); font-size:16px; margin-top:3px; flex-shrink:0;">[✗]</span>
+            <span style="font-size:30px !important; line-height:1.45 !important;">Hard to share — your setup only lives in your head, not the team</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: teaser -->
+      <div class="col" style="gap:18px; justify-content:center;">
+        <div style="font-family:var(--t-font); font-size:12px; color:var(--t-green); letter-spacing:0.15em; font-weight:700;">// NEXT_STEP</div>
+
+        <div class="card card--accent" style="padding:24px 28px; gap:14px;">
+          <p style="font-size:22px !important; line-height:1.5 !important; color:var(--t-text);">
+            What if you could package all that knowledge into a single <span style="color:var(--t-cyan);">/command</span>?
+          </p>
+        </div>
+
+        <div class="codebox" style="font-size:14px; padding:16px 20px; line-height:1.9;">
+          <span style="color:var(--t-dim);"># the repetitive way</span><br>
+          <span style="color:var(--t-red);">"Here are my GitLab creds, our rules, now do X..."</span><br><br>
+          <span style="color:var(--t-dim);"># with skills</span><br>
+          <span style="color:var(--t-green);">/<span style="color:var(--t-cyan);">do-x</span></span> <span style="color:var(--t-dim);">↵  → everything runs automatically</span>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:12px; margin-top:4px;">
+          <div style="height:1px; flex:1; background:var(--t-border);"></div>
+          <div style="font-family:var(--t-font); font-size:13px; color:var(--t-cyan); letter-spacing:0.1em;">→ Approach 03: Skills &amp; Automation</div>
+          <div style="height:1px; flex:1; background:var(--t-border);"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Vasilii Panov</span><span style="color:var(--t-dim);">Modern AI Integration</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<section class="slide">
+    <div class="frame">
+        <div class="title-block" style="margin-bottom:28px;">
+            <div class="eyebrow">Without Skills · Every. Single. Time.</div>
+            <h1 style="font-size:64px !important; line-height:1.05 !important;">You write this <span style="color:var(--t-red);">every day._</span></h1>
+        </div>
+
+        <div class="grid-2" style="gap:48px; align-items:stretch; flex:1;">
+
+            <!-- Left: the full painful prompt -->
+            <div style="
+        height:100%;
+        min-height:340px;
+        display:flex;
+        flex-direction:column;
+        border:1px solid var(--t-red);
+        border-radius:8px;
+        overflow:hidden;
+        background:#0d1117;
+        opacity:0.95;
+      ">
+                <div style="display:flex; align-items:center; gap:8px; padding:8px 14px; background:#1a0a0a; border-bottom:1px solid var(--t-red); flex-shrink:0;">
+                    <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+                    <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
+                    <span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+                    <span style="font-family:var(--t-font); font-size:16px; color:var(--t-red); margin-left:8px;">Monday · Tuesday · Wednesday · Thursday · Friday...</span>
+                </div>
+                <div style="padding:18px 22px; font-family:var(--t-font); font-size:19px; line-height:1.85; flex:1; overflow:auto;">
+                    <span style="color:var(--t-green);">you@mac ~$</span> <span style="color:#e6edf3;">claude "Please review the current file.<br>
+          &nbsp;&nbsp;Use 2 spaces for indentation, no tabs.<br>
+          &nbsp;&nbsp;Maximum line length is 80 characters.<br>
+          &nbsp;&nbsp;Do not use var — only const or let.<br>
+          &nbsp;&nbsp;Every function must have a return type.<br>
+          &nbsp;&nbsp;Check for hardcoded secrets or API keys.<br>
+          &nbsp;&nbsp;Flag unnecessary loops or n+1 queries.<br>
+          &nbsp;&nbsp;Variable names must be descriptive.<br>
+          &nbsp;&nbsp;No magic numbers — use named constants.<br>
+          &nbsp;&nbsp;Rate each issue as [critical], [warning]<br>
+          &nbsp;&nbsp;or [hint] and explain why."</span>
+                </div>
+            </div>
+
+            <!-- Right: problems -->
+            <div class="col" style="gap:0; justify-content:space-between;">
+                <div style="font-family:var(--t-font); font-size:12px; color:var(--t-dim); letter-spacing:0.15em;">// THE_PROBLEM</div>
+                <ul class="bullets" style="gap:22px; list-style:none; padding:0; margin:0; flex:1; justify-content:space-evenly; display:flex; flex-direction:column; padding-top:16px;">
+                    <li style="display:flex; gap:12px; align-items:flex-start;">
+                        <span style="color:var(--t-red); font-family:var(--t-font); font-size:16px; margin-top:3px; flex-shrink:0;">[✗]</span>
+                        <span style="font-size:29px !important; line-height:1.45 !important;">You retype the same rules <span style="color:var(--t-red);">every single session</span></span>
+                    </li>
+                    <li style="display:flex; gap:12px; align-items:flex-start;">
+                        <span style="color:var(--t-red); font-family:var(--t-font); font-size:16px; margin-top:3px; flex-shrink:0;">[✗]</span>
+                        <span style="font-size:29px !important; line-height:1.45 !important;">You forget a rule → inconsistent reviews</span>
+                    </li>
+                    <li style="display:flex; gap:12px; align-items:flex-start;">
+                        <span style="color:var(--t-red); font-family:var(--t-font); font-size:16px; margin-top:3px; flex-shrink:0;">[✗]</span>
+                        <span style="font-size:29px !important; line-height:1.45 !important;">Your colleague writes it differently → different results</span>
+                    </li>
+                    <li style="display:flex; gap:12px; align-items:flex-start;">
+                        <span style="color:var(--t-red); font-family:var(--t-font); font-size:16px; margin-top:3px; flex-shrink:0;">[✗]</span>
+                        <span style="font-size:29px !important; line-height:1.45 !important;">Rules change → you update every prompt manually</span>
+                    </li>
+                </ul>
+
+                <div style="display:flex; align-items:center; gap:12px; margin-top:8px;">
+                    <div style="height:1px; flex:1; background:var(--t-border);"></div>
+                    <div style="font-family:var(--t-font); font-size:13px; color:var(--t-cyan); letter-spacing:0.1em;">← that's why skills exist</div>
+                    <div style="height:1px; flex:1; background:var(--t-border);"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="slide-footer">
+        <div class="meta"><span class="speaker">Vasilii Panov</span><span style="color:var(--t-dim);">Modern AI Integration</span></div>
+        <div class="pageno"></div>
+    </div>
+</section>
+
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOLIE 4 — APPROACH 3: SKILLS & AUTOMATION
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="frame">
+    <div class="title-block" style="margin-bottom:28px;">
+      <div class="eyebrow">Approach 03 · Automation</div>
+      <h1 style="font-size:64px !important; line-height:1.05 !important;">Under the Hood: Skills &amp; Custom Workflows.</h1>
+    </div>
+
+    <div class="grid-2" style="gap:56px; align-items:stretch; flex:1;">
+
+      <!-- Left -->
+      <div class="col" style="gap:24px; justify-content:space-between;">
+        <div class="card" style="border-left:3px solid var(--t-orange); padding:20px 24px; gap:10px; background:var(--t-surface);">
+          <div style="font-family:var(--t-font); color:var(--t-orange); font-size:13px; letter-spacing:0.1em; font-weight:700;">WARN: EFFICIENCY</div>
+          <p style="font-size:27px !important; line-height:1.5 !important;">Repetitive prompts every day — GitLab creds, company rules, summaries.</p>
+        </div>
+
+        <h3 style="font-size:30px !important;">What are Skills?</h3>
+        <ul class="bullets bullets--check" style="gap:18px; flex:1; justify-content:space-evenly; display:flex; flex-direction:column;">
+          <li><span style="color:var(--t-text); font-size:29px !important; line-height:1.5 !important;">Pre-defined, packaged instructions &amp; capabilities</span></li>
+          <li><span style="color:var(--t-text); font-size:29px !important; line-height:1.5 !important;">Bundle rules, credentials, and tasks once — reuse forever</span></li>
+          <li><span style="color:var(--t-text); font-size:29px !important; line-height:1.5 !important;">Triggered by a single <span style="color:var(--t-cyan);">/slash-command</span> in the editor</span></li>
+        </ul>
+
+      </div>
+
+      <!-- Right: skill.md file viewer -->
+      <div style="
+        height:100%;
+        min-height:380px;
+        display:flex;
+        flex-direction:column;
+        border:1px solid var(--t-border);
+        border-radius:8px;
+        overflow:hidden;
+        background:#0d1117;
+      ">
+        <!-- Title bar -->
+        <div style="
+          display:flex; align-items:center; gap:8px;
+          padding:8px 14px;
+          background:#161b22;
+          border-bottom:1px solid var(--t-border);
+          flex-shrink:0;
+        ">
+          <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+          <span style="font-family:var(--t-font); font-size:16px; color:var(--t-dim); margin-left:8px;">review-code.md</span>
+        </div>
+
+        <!-- File content -->
+        <div style="padding:18px 22px; font-family:var(--t-font); font-size:19px; line-height:1.85; overflow:auto; flex:1;">
+          <div style="color:var(--t-dim);">---</div>
+          <div><span style="color:var(--t-cyan);">name:</span> <span style="color:var(--t-green);">review-code</span></div>
+          <div><span style="color:var(--t-cyan);">description:</span> <span style="color:#e6edf3;">Review current file with our team rules</span></div>
+          <div style="color:var(--t-dim);">---</div>
+          <br>
+          <div style="color:var(--t-orange);"># Coding Rules</div>
+          <div style="color:#e6edf3;">- Indentation: <span style="color:var(--t-cyan);">2 spaces</span>, no tabs</div>
+          <div style="color:#e6edf3;">- Max line length: <span style="color:var(--t-cyan);">80 characters</span></div>
+          <div style="color:#e6edf3;">- No <span style="color:var(--t-red);">var</span> — use <span style="color:var(--t-green);">const</span> / <span style="color:var(--t-green);">let</span></div>
+          <div style="color:#e6edf3;">- Functions must have a return type</div>
+          <br>
+          <div style="color:var(--t-orange);"># Review Focus</div>
+          <div style="color:#e6edf3;">- Security: no hardcoded secrets</div>
+          <div style="color:#e6edf3;">- Performance: avoid unnecessary loops</div>
+          <div style="color:#e6edf3;">- Readability: clear naming, no magic numbers</div>
+          <br>
+          <div style="color:var(--t-orange);"># Output Format</div>
+          <div style="color:#e6edf3;">Rate each issue: <span style="color:var(--t-cyan);">[critical]</span> / <span style="color:var(--t-orange);">[warning]</span> / <span style="color:var(--t-dim);">[hint]</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Vasilii Panov</span><span style="color:var(--t-dim);">Modern AI Integration</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOLIE 6 — SKILL IN ACTION: /review-code
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="frame">
+    <div class="title-block" style="margin-bottom:32px;">
+      <div class="eyebrow">Approach 03 · In Action</div>
+      <h1 style="font-size:64px !important; line-height:1.05 !important;">One command. <span style="color:var(--t-cyan);">Full review._</span></h1>
+    </div>
+
+    <div class="grid-2" style="gap:48px; align-items:stretch; flex:1;">
+
+      <!-- Left: the solution steps -->
+      <div class="col" style="gap:0; justify-content:space-between;">
+        <div style="font-family:var(--t-font); font-size:12px; color:var(--t-green); letter-spacing:0.15em;">// WITH_SKILL</div>
+
+        <ul class="bullets" style="gap:22px; list-style:none; padding:0; margin:0; flex:1; justify-content:space-evenly; display:flex; flex-direction:column; padding-top:16px;">
+          <li style="display:flex; gap:14px; align-items:flex-start;">
+            <span style="color:var(--t-cyan); font-family:var(--t-font); font-size:16px; margin-top:2px; flex-shrink:0;">01</span>
+            <span style="font-size:29px !important; line-height:1.45 !important;">Write your rules <span style="color:var(--t-cyan);">once</span> in <span style="font-family:var(--t-font);">review-code.md</span></span>
+          </li>
+          <li style="display:flex; gap:14px; align-items:flex-start;">
+            <span style="color:var(--t-cyan); font-family:var(--t-font); font-size:16px; margin-top:2px; flex-shrink:0;">02</span>
+            <span style="font-size:29px !important; line-height:1.45 !important;">Share the file with your whole team — one source of truth</span>
+          </li>
+          <li style="display:flex; gap:14px; align-items:flex-start;">
+            <span style="color:var(--t-cyan); font-family:var(--t-font); font-size:16px; margin-top:2px; flex-shrink:0;">03</span>
+            <span style="font-size:29px !important; line-height:1.45 !important;">From now on everyone just types <span style="color:var(--t-cyan); font-family:var(--t-font);">/review-code</span></span>
+          </li>
+          <li style="display:flex; gap:14px; align-items:flex-start;">
+            <span style="color:var(--t-cyan); font-family:var(--t-font); font-size:16px; margin-top:2px; flex-shrink:0;">04</span>
+            <span style="font-size:29px !important; line-height:1.45 !important;">Rules change? Update the file once — everyone benefits</span>
+          </li>
+        </ul>
+
+        <div class="card card--accent" style="padding:20px 24px; margin-top:16px;">
+          <p style="font-size:26px !important; line-height:1.5 !important; color:var(--t-dim);">
+            11 lines of prompt → <span style="color:var(--t-green); font-family:var(--t-font);">/review-code ↵</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: terminal mockup -->
+      <div style="
+        height:100%;
+        min-height:380px;
+        display:flex;
+        flex-direction:column;
+        border:1px solid var(--t-border);
+        border-radius:8px;
+        overflow:hidden;
+        background:#0d1117;
+      ">
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 14px; background:#161b22; border-bottom:1px solid var(--t-border); flex-shrink:0;">
+          <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+          <span style="font-family:var(--t-font); font-size:16px; color:var(--t-dim); margin-left:8px;">Claude Code — terminal</span>
+        </div>
+
+        <div style="padding:18px 20px; font-family:var(--t-font); font-size:19px; line-height:1.8; display:flex; flex-direction:column; gap:14px; flex:1; overflow:auto;">
+
+          <div style="display:flex; gap:10px;">
+            <span style="color:var(--t-green); flex-shrink:0;">you@mac ~$</span>
+            <span style="color:#e6edf3;"><span style="color:var(--t-cyan);">/review-code</span></span>
+          </div>
+
+          <div style="display:flex; gap:10px; align-items:flex-start;">
+            <span style="color:var(--t-orange); flex-shrink:0;">claude &gt;</span>
+            <div style="color:var(--t-dim);">
+              Reading skill: <span style="color:var(--t-green);">review-code.md</span> ✓<br>
+              Reading file: <span style="color:var(--t-green);">auth.service.ts</span> ✓<br>
+              Applying team rules... <span style="color:var(--t-green);">✓</span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:10px; align-items:flex-start;">
+            <span style="color:var(--t-orange); flex-shrink:0;">claude &gt;</span>
+            <div style="color:#e6edf3;">
+              Found <span style="color:var(--t-red);">1 critical</span>, <span style="color:var(--t-orange);">2 warnings</span>, <span style="color:var(--t-dim);">1 hint</span><br><br>
+              <span style="color:var(--t-red);">[critical]</span> line 14 — hardcoded API key<br>
+              <span style="color:var(--t-orange);">[warning]</span> line 31 — <span style="color:var(--t-red);">var</span> used, should be <span style="color:var(--t-green);">const</span><br>
+              <span style="color:var(--t-orange);">[warning]</span> line 47 — line exceeds 80 chars<br>
+              <span style="color:var(--t-dim);">[hint]</span>    line 52 — magic number, use constant
+            </div>
+          </div>
+
+          <div style="display:flex; gap:10px; align-items:center; margin-top:auto; padding-top:10px; border-top:1px solid var(--t-border);">
+            <span style="color:var(--t-green); flex-shrink:0;">you@mac ~$</span>
+            <span style="color:var(--t-dim);">█</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Vasilii Panov</span><span style="color:var(--t-dim);">Modern AI Integration</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOLIE 8 — CHAINING SKILLS
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="frame">
+    <div class="title-block" style="margin-bottom:28px;">
+      <div class="eyebrow">Approach 03 · Going Further</div>
+      <h1 style="font-size:64px !important; line-height:1.05 !important;">Skills can <span style="color:var(--t-cyan);">call each other._</span></h1>
+    </div>
+
+    <div class="grid-2" style="gap:56px; align-items:stretch; flex:1;">
+
+      <!-- Left: skill chain flow -->
+      <div style="display:flex; flex-direction:column; gap:0; height:100%;">
+
+        <div style="font-family:var(--t-font); font-size:12px; color:var(--t-green); letter-spacing:0.15em; font-weight:700; margin-bottom:16px;">// SKILL_CHAIN</div>
+
+        <!-- review-code.md box -->
+        <div style="border:1px solid var(--t-border); border-radius:0; background:#0d1117; overflow:hidden; flex-shrink:0;">
+          <div style="display:flex; align-items:center; gap:8px; padding:7px 14px; background:#161b22; border-bottom:1px solid var(--t-border);">
+            <span style="width:9px;height:9px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+            <span style="width:9px;height:9px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
+            <span style="width:9px;height:9px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+            <span style="font-family:var(--t-font); font-size:14px; color:var(--t-dim); margin-left:6px;">review-code.md</span>
+          </div>
+          <div style="padding:14px 18px; font-family:var(--t-font); font-size:16px; line-height:1.7;">
+            <div style="color:var(--t-dim);">name: <span style="color:var(--t-green);">review-code</span></div>
+            <div style="color:var(--t-dim);">...</div>
+            <div style="color:var(--t-dim); margin-top:6px;"># Final Step</div>
+            <div style="color:#e6edf3;">After the review is done,</div>
+            <div>run <span style="color:var(--t-cyan); font-weight:700;">/improve-code</span> <span style="color:var(--t-dim);">to apply the fixes.</span></div>
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div style="display:flex; align-items:center; gap:12px; padding:10px 18px;">
+          <div style="width:1px; height:32px; background:var(--t-green); margin-left:18px;"></div>
+          <span style="font-family:var(--t-font); font-size:14px; color:var(--t-green);">AI jumps automatically ↓</span>
+        </div>
+
+        <!-- improve-code.md box -->
+        <div style="border:1px solid var(--t-cyan); border-radius:0; background:#0d1117; overflow:hidden; flex-shrink:0;">
+          <div style="display:flex; align-items:center; gap:8px; padding:7px 14px; background:#0a1a20; border-bottom:1px solid var(--t-cyan);">
+            <span style="width:9px;height:9px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+            <span style="width:9px;height:9px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
+            <span style="width:9px;height:9px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+            <span style="font-family:var(--t-font); font-size:14px; color:var(--t-cyan); margin-left:6px;">improve-code.md</span>
+          </div>
+          <div style="padding:14px 18px; font-family:var(--t-font); font-size:16px; line-height:1.7;">
+            <div style="color:var(--t-dim);">name: <span style="color:var(--t-cyan);">improve-code</span></div>
+            <div style="color:var(--t-dim);">...</div>
+            <div style="color:var(--t-dim); margin-top:6px;"># Rules</div>
+            <div style="color:#e6edf3;">Apply the fixes from the review.</div>
+            <div style="color:#e6edf3;">Keep functions small, names clear.</div>
+          </div>
+        </div>
+
+        <!-- Arrow + result -->
+        <div style="display:flex; align-items:center; gap:12px; padding:10px 18px;">
+          <div style="width:1px; height:32px; background:var(--t-green); margin-left:18px;"></div>
+        </div>
+        <div style="font-family:var(--t-font); font-size:17px; color:var(--t-green); padding:0 18px;">
+          ✓ reviewed <span style="color:var(--t-dim);">+</span> fixed — <span style="color:var(--t-cyan);">one command</span>
+        </div>
+
+      </div>
+
+      <!-- Right: explanation + sub-agents teaser -->
+      <div class="col" style="gap:28px; justify-content:space-between;">
+
+        <div>
+          <div style="font-family:var(--t-font); font-size:12px; color:var(--t-green); letter-spacing:0.15em; font-weight:700; margin-bottom:16px;">// HOW IT WORKS</div>
+          <ul class="bullets bullets--check" style="gap:20px;">
+            <li><span style="font-size:26px !important; line-height:1.45 !important;">One skill calls another — the AI follows the chain <span style="color:var(--t-cyan);">automatically</span></span></li>
+            <li><span style="font-size:26px !important; line-height:1.45 !important;">Build multi-step workflows triggered by a <span style="color:var(--t-cyan);">single command</span></span></li>
+            <li><span style="font-size:26px !important; line-height:1.45 !important;">Each skill stays focused on <span style="color:var(--t-cyan);">one job</span> — easy to update</span></li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-left:3px solid var(--t-orange) !important; padding:22px 26px; gap:14px; background:var(--t-surface) !important;">
+          <div style="font-family:var(--t-font); color:var(--t-orange); font-size:13px; letter-spacing:0.1em; font-weight:700;">// GOING DEEPER</div>
+          <p style="font-size:22px !important; line-height:1.55 !important; color:var(--t-text) !important;">
+            You can even spawn <span style="color:var(--t-cyan);">multiple sub-agents</span> in parallel — each with its own context, working on the same task — and get one <span style="color:var(--t-green);">combined output</span> at the end.
+          </p>
+          <div style="display:flex; align-items:center; gap:10px; margin-top:4px;">
+            <div style="height:1px; flex:1; background:var(--t-border);"></div>
+            <div style="font-family:var(--t-font); font-size:13px; color:var(--t-dim); letter-spacing:0.08em;">← beyond the scope of this talk</div>
+            <div style="height:1px; flex:1; background:var(--t-border);"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Vasilii Panov</span><span style="color:var(--t-dim);">Modern AI Integration</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOLIE 7 — THE PAINFUL PROMPT
+     ═══════════════════════════════════════════════════════ -->

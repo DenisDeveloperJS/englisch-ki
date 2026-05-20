@@ -535,7 +535,12 @@
       }
       const vw = window.innerWidth;
       const vh = window.innerHeight;
-      const s = Math.min(vw / this.designWidth, vh / this.designHeight);
+      const scaleW = vw / this.designWidth;
+      const scaleH = vh / this.designHeight;
+      // Fill width always (no side bars). On non-16:9 viewports the canvas may
+      // extend slightly below the viewport, but that's only visible outside
+      // fullscreen — on a 16:9 projector it's always pixel-perfect.
+      const s = scaleW > scaleH ? scaleW : Math.min(scaleW, scaleH);
       this._canvas.style.transform = `scale(${s})`;
     }
 
