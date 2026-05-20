@@ -1,62 +1,71 @@
 <!doctype html>
 <html lang="de">
-<head>
-<meta charset="utf-8" />
-<title>Präsentation</title>
-<meta name="viewport" content="width=1920,initial-scale=1" />
-<link rel="stylesheet" href="styles/deck.css" />
-<link rel="stylesheet" href="styles/terminal.css" />
-<style>
-html, body { margin: 0; padding: 0; background: #001935; }
-body { font-family: "Roboto", system-ui, sans-serif; }
-</style>
-</head>
-<body>
-
-<deck-stage width="1920" height="1080" id="stage">
-</deck-stage>
-
-<script>
-// ============================================================
-// HIER die Reihenfolge der Folien-Dateien eintragen.
-// Jede Person legt ihre eigene Datei in slides/ ab.
-// ============================================================
-const SLIDES = [
-  // 'slides/max.html',
-  // 'slides/anna.html',
-  'slides/denis_risks.html',
-];
-// ============================================================
-
-async function loadSlides() {
-  const stage = document.getElementById('stage');
-
-  for (const path of SLIDES) {
-    try {
-      const res = await fetch(path);
-      if (!res.ok) { console.warn(`Nicht gefunden: ${path}`); continue; }
-      const html = await res.text();
-      const doc = new DOMParser().parseFromString(html, 'text/html');
-      for (const section of doc.querySelectorAll('section')) {
-        stage.appendChild(document.adoptNode(section));
+  <head>
+    <meta charset="utf-8" />
+    <title>Präsentation</title>
+    <meta name="viewport" content="width=1920,initial-scale=1" />
+    <link rel="stylesheet" href="styles/deck.css" />
+    <link rel="stylesheet" href="styles/terminal.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #001935;
       }
-    } catch (e) {
-      console.error(`Fehler beim Laden von ${path}:`, e);
-    }
-  }
+      body {
+        font-family: "Roboto", system-ui, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <deck-stage width="1920" height="1080" id="stage"> </deck-stage>
 
-  // Seitenzahlen automatisch setzen
-  const allSlides = stage.querySelectorAll('section');
-  const total = allSlides.length;
-  allSlides.forEach((slide, i) => {
-    const pageno = slide.querySelector('.pageno');
-    if (pageno) pageno.textContent = `${i + 1} / ${total}`;
-  });
-}
+    <script>
+      // ============================================================
+      // HIER die Reihenfolge der Folien-Dateien eintragen.
+      // Jede Person legt ihre eigene Datei in slides/ ab.
+      // ============================================================
+      const SLIDES = [
+        // 'slides/max.html',
+        // 'slides/anna.html',
+        "slides/timeline.html",
+        "slides/denis_risks.html",
+      ];
+      // ============================================================
 
-loadSlides();
-</script>
+      async function loadSlides() {
+        const stage = document.getElementById("stage");
 
-<script src="deck-stage.js"></script>
-</body>
+        for (const path of SLIDES) {
+          try {
+            const res = await fetch(path);
+            if (!res.ok) {
+              console.warn(`Nicht gefunden: ${path}`);
+              continue;
+            }
+            const html = await res.text();
+            const doc = new DOMParser().parseFromString(html, "text/html");
+            for (const section of doc.querySelectorAll("section")) {
+              stage.appendChild(document.adoptNode(section));
+            }
+          } catch (e) {
+            console.error(`Fehler beim Laden von ${path}:`, e);
+          }
+        }
+
+        // Seitenzahlen automatisch setzen
+        const allSlides = stage.querySelectorAll("section");
+        const total = allSlides.length;
+        allSlides.forEach((slide, i) => {
+          const pageno = slide.querySelector(".pageno");
+          if (pageno) pageno.textContent = `${i + 1} / ${total}`;
+        });
+      }
+
+      loadSlides();
+    </script>
+
+    <script src="deck-stage.js"></script>
+  </body>
 </html>
