@@ -62,7 +62,7 @@ section.slide p,
 section.slide li {
   font-family: var(--t-font) !important;
   color: var(--t-text) !important;
-  font-size: 22px !important;
+  font-size: 26px !important;
   font-weight: 400 !important;
   line-height: 1.6 !important;
 }
