@@ -1,0 +1,432 @@
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 1: COVER — The Dark Side of AI Coding
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="brand-bar"></div>
+
+  <div class="frame frame--center">
+    <div style="display:flex; flex-direction:column; gap:40px;">
+      <div style="font-family:var(--t-font); font-size:15px; color:var(--t-green); opacity:0.7;">
+        $ ./presentation --topic "AI_Coding_Risks" --lang en --start
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="eyebrow">Security · AI · Software Engineering</div>
+        <h1 style="font-size:108px !important; line-height:0.95 !important; letter-spacing:-0.02em !important;">
+          The Dark Side<br>
+          <span style="color:var(--t-cyan);">of AI Coding</span>
+        </h1>
+        <p style="font-size:26px !important; color:var(--t-dim); max-width:1100px;">
+          Risks, vulnerabilities and why humans are still irreplaceable
+          — a technical deep dive into the dangers of blind AI trust.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo: Dramatic terminal / hacker code image -->
+  <div style="
+    position:absolute; right:96px; top:180px; bottom:120px; width:600px;
+    overflow:hidden; border:1px solid var(--t-border);
+  ">
+    <img src="../assets/01.jpg" alt="Dramatic terminal hacker code" style="
+      width:100%; height:100%; object-fit:cover;
+      filter:brightness(0.85) saturate(1.2);
+    ">
+  </div>
+
+  <div class="slide-footer">
+    <div class="meta"><span style="color:var(--t-dim); font-family:var(--t-font);">denis_risks.html</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 2: CHAPTER DIVIDER — Security Risks
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide" style="justify-content:center; align-items:center; position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; background:
+    linear-gradient(180deg, rgba(0, 25, 53, 0.40), rgba(0, 25, 53, 0.72)),
+    url('../assets/02.webp') center/cover no-repeat;"></div>
+  <div
+    style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:28px; text-align:center; z-index:1;">
+    <div
+      style="font-family:var(--t-font); font-size:16px; color:var(--t-text); letter-spacing:0.15em; text-shadow:0 2px 12px rgba(0,0,0,0.75);">
+      // SECTION_01</div>
+    <div
+      style="font-family:var(--t-font); font-size:18px; color:var(--t-orange); text-shadow:0 2px 12px rgba(0,0,0,0.75);">
+      $ cd ./security-risks</div>
+    <h1
+      style="font-size:122px !important; line-height:1 !important; letter-spacing:-0.03em !important; color:var(--t-orange) !important; text-shadow:0 2px 18px rgba(0,0,0,0.55);">
+      Security<br><span style="color:var(--t-green);">Risks</span>
+    </h1>
+    <p
+      style="font-size:26px !important; color:var(--t-text); max-width:980px; text-shadow:0 2px 12px rgba(0,0,0,0.75);">
+      When your AI coding assistant becomes your biggest threat.</p>
+    <div
+      style="font-family:var(--t-font); font-size:14px; color:var(--t-text); text-shadow:0 2px 12px rgba(0,0,0,0.75);">
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Denis</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 3: CONTENT — Hallucinations & Security Vulnerabilities
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide" style="position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; background:
+    linear-gradient(180deg, rgba(0, 25, 53, 0.18), rgba(0, 25, 53, 0.62)),
+    url('assets/screenshots/slide-3-background.jpg') center/cover no-repeat;"></div>
+
+  <div class="frame" style="inset: 100px 96px 80px 96px;">
+    <div class="title-block" style="margin-bottom:24px; max-width:980px; position:relative; z-index:1;">
+      <div class="eyebrow">Security Risks · AI Coding</div>
+      <h1 style="font-size:68px !important;">Hallucinations & Hidden Dangers.</h1>
+    </div>
+
+    <div style="display:flex; gap:32px; align-items:stretch; position:relative; z-index:1; height:640px;">
+      <!-- Left: 2x2 Grid of 4 Cards -->
+      <div style="flex: 1.3; display:grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 20px;">
+
+        <!-- Hallucination card -->
+        <div class="card card--accent"
+          style="border-left-color:var(--t-orange) !important; padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:10px;">
+          <div>
+            <div
+              style="font-family:var(--t-font); color:var(--t-orange); font-size:11px; letter-spacing:0.1em; font-weight:700; margin-bottom:4px;">
+              WARN: HALLUCINATION</div>
+            <h3 style="font-size:24px !important; margin-bottom:6px;">Blind Trust in AI</h3>
+            <p style="font-size:16px !important; line-height:1.45 !important;">AI invents libraries, APIs, and code with
+              total confidence. Developers copy-paste unchecked.</p>
+          </div>
+          <div
+            style="font-family:var(--t-font); font-size:11px; color:var(--t-text); border-top:1px solid var(--t-border); padding-top:8px; text-shadow:0 1px 10px rgba(0,0,0,0.45); line-height:1.35 !important;">
+            <span style="color:var(--t-orange); font-weight:700;">REAL CASE — Solberg, Aug. 2025:</span> Chatbot
+            hallucination triggered "AI-induced psychosis". Extreme danger of blind trust.
+          </div>
+        </div>
+
+        <!-- Security Vuln card -->
+        <div class="card card--accent"
+          style="border-left-color:var(--t-orange) !important; padding:20px; display:flex; flex-direction:column; gap:10px;">
+          <div>
+            <div
+              style="font-family:var(--t-font); color:var(--t-orange); font-size:11px; letter-spacing:0.1em; font-weight:700; margin-bottom:4px;">
+              WARN: SECURITY_VULN</div>
+            <h3 style="font-size:24px !important; margin-bottom:6px;">Insecure Code</h3>
+            <p style="font-size:16px !important; line-height:1.45 !important;">AI generates outdated or vulnerable code
+              — open ports, weak hashing, SQL injection risks — trained on old bad practices.</p>
+          </div>
+        </div>
+
+        <!-- IP Loss card -->
+        <div class="card card--accent"
+          style="border-left-color:var(--t-red) !important; padding:20px; display:flex; flex-direction:column; gap:10px;">
+          <div>
+            <div
+              style="font-family:var(--t-font); color:var(--t-red); font-size:11px; letter-spacing:0.1em; font-weight:700; margin-bottom:4px;">
+              WARN: DATA LEAK</div>
+            <h3 style="font-size:24px !important; margin-bottom:6px;">Privacy & IP Loss</h3>
+            <p style="font-size:16px !important; line-height:1.45 !important;">Developers paste company secrets and API
+              keys into chats. They leak into training data or logged permanently.</p>
+          </div>
+        </div>
+
+        <!-- Spaghetti Code card -->
+        <div class="card card--accent"
+          style="border-left-color:var(--t-dim) !important; padding:20px; display:flex; flex-direction:column; gap:10px;">
+          <div>
+            <div
+              style="font-family:var(--t-font); color:var(--t-dim); font-size:11px; letter-spacing:0.1em; font-weight:700; margin-bottom:4px;">
+              WARN: TECH_DEBT</div>
+            <h3 style="font-size:24px !important; margin-bottom:6px;">Spaghetti Code</h3>
+            <p style="font-size:16px !important; line-height:1.45 !important;">Quick AI fixes stack up, ruining
+              architecture. Soon, no one understands the codebase anymore — not even the AI.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: Big Image -->
+      <div style="flex: 0.7; overflow:hidden; border:1px solid var(--t-border); display:flex;">
+        <img src="../assets/03.jpg" alt="AI hallucination example" style="
+          width:100%; height:100%; object-fit:cover;
+          filter:brightness(0.85) saturate(1.2);
+        ">
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Denis</span><span style="color:var(--t-dim);">Section 01 — Security</span>
+    </div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 4: CHAPTER DIVIDER — Why AI Can't Replace Humans
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide" style="justify-content:center; align-items:center; position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; background:
+    linear-gradient(180deg, rgba(0, 25, 53, 0.36), rgba(0, 25, 53, 0.72)),
+    url('../assets/04.jpg') center/cover no-repeat;"></div>
+  <div
+    style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:28px; text-align:center; z-index:1;">
+    <div
+      style="font-family:var(--t-font); font-size:16px; color:var(--t-text); letter-spacing:0.15em; text-shadow:0 2px 12px rgba(0,0,0,0.75);">
+      // SECTION_02</div>
+    <div
+      style="font-family:var(--t-font); font-size:18px; color:var(--t-cyan); text-shadow:0 2px 12px rgba(0,0,0,0.75);">$
+      cd ./human-vs-ai</div>
+    <h1
+      style="font-size:96px !important; line-height:1 !important; letter-spacing:-0.03em !important; text-shadow:0 2px 18px rgba(0,0,0,0.55);">
+      Why AI Can't<br><span style="color:var(--t-cyan);">Replace Humans</span>
+    </h1>
+    <p
+      style="font-size:26px !important; color:var(--t-text); max-width:1100px; text-shadow:0 2px 12px rgba(0,0,0,0.75);">
+      (Yet.) The fundamental gaps that keep developers indispensable.
+    </p>
+    <div
+      style="font-family:var(--t-font); font-size:14px; color:var(--t-text); text-shadow:0 2px 12px rgba(0,0,0,0.75);">
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Denis</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 5: CONTENT — Why Humans Still Win
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="frame">
+    <div class="title-block" style="margin-bottom:48px;">
+      <div class="eyebrow">AI Limitations · Human Edge</div>
+      <h1>The Four Gaps AI Cannot Close.</h1>
+    </div>
+
+    <div style="display:flex; gap:56px; align-items:flex-start;">
+
+      <!-- 4-item grid -->
+      <div class="grid-2" style="flex:1; gap:32px;">
+
+        <div class="card card--accent" style="gap:12px; padding:24px;">
+          <div
+            style="font-family:var(--t-font); color:var(--t-green); font-size:12px; letter-spacing:0.1em; font-weight:700;">
+            GAP_01</div>
+          <h3 style="font-size:30px !important;">No Context Understanding</h3>
+          <p style="font-size:21px !important; line-height:1.45 !important;">AI doesn't understand the <em
+              style="color:var(--t-cyan);">"why"</em> behind code —
+            not business logic, not customer needs, not the 3-year-old tech debt decision
+            that shapes everything.</p>
+        </div>
+
+        <div class="card card--accent" style="gap:12px; padding:24px;">
+          <div
+            style="font-family:var(--t-font); color:var(--t-green); font-size:12px; letter-spacing:0.1em; font-weight:700;">
+            GAP_02</div>
+          <h3 style="font-size:30px !important;">Complex Architecture</h3>
+          <p style="font-size:21px !important; line-height:1.45 !important;">AI writes individual scripts well. But
+            designing a full, interconnected system
+            — backend, frontend, DevOps, security, scaling — still requires a human brain.</p>
+        </div>
+
+        <div class="card card--accent" style="gap:12px; padding:24px;">
+          <div
+            style="font-family:var(--t-font); color:var(--t-orange); font-size:12px; letter-spacing:0.1em; font-weight:700;">
+            GAP_03</div>
+          <h3 style="font-size:30px !important;">Accountability</h3>
+          <p style="font-size:21px !important; line-height:1.45 !important;">When the system crashes at 3 AM, <em
+              style="color:var(--t-orange);">someone</em> is responsible.
+            You can't fire an AI. You can't sue it. The developer always owns the result.</p>
+        </div>
+
+        <div class="card card--accent" style="gap:12px; padding:24px;">
+          <div
+            style="font-family:var(--t-font); color:var(--t-cyan); font-size:12px; letter-spacing:0.1em; font-weight:700;">
+            GAP_04</div>
+          <h3 style="font-size:30px !important;">Creative Solving</h3>
+          <p style="font-size:21px !important; line-height:1.45 !important;">Real programming is communication and
+            creativity — solving problems that
+            were never on Stack Overflow. That requires a human with context, empathy, and judgment.</p>
+        </div>
+
+      </div>
+
+      <!-- Photo: Human vs AI conceptual image -->
+      <div style="
+        width:520px; align-self:stretch;
+        overflow:hidden; border:1px solid var(--t-border);
+      ">
+        <img src="../assets/05.png" alt="Human vs AI" style="
+          width:100%; height:100%; object-fit:cover;
+          filter:brightness(0.85) saturate(1.2);
+        ">
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Denis</span><span style="color:var(--t-dim);">Section 02 — Human Edge</span>
+    </div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 6: CONTENT — Dangers of Autonomous AI Agents
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="frame">
+    <div class="title-block" style="margin-bottom:40px;">
+      <div class="eyebrow">Autonomous Agents · Full Access · Danger Zone</div>
+      <h1>When AI Gets <span style="color:var(--t-red);">Full Control.</span></h1>
+    </div>
+
+    <div style="display:flex; gap:36px; align-items:flex-start;">
+
+      <!-- Left: 3 incident cards -->
+      <div class="col" style="flex:1; gap:32px;">
+
+        <div class="card card--accent" style="border-left-color:var(--t-red) !important; gap:8px; padding:18px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div
+              style="font-family:var(--t-font); color:var(--t-red); font-size:11px; letter-spacing:0.1em; font-weight:700;">
+              INCIDENT_01 · BIOTERRORISM RISK</div>
+            <div style="font-family:var(--t-font); font-size:11px; color:var(--t-dim);">Red-Team Test, 2024</div>
+          </div>
+          <h3 style="font-size:28px !important; margin-bottom:2px;">No Human in the Loop</h3>
+          <p style="font-size:19px !important; line-height:1.45 !important;">Without guardrails, a leading AI model
+            helped a security researcher plan
+            a detailed biological attack — step by step.
+            <span style="color:var(--t-red);">No human filter. No moral brake.</span>
+          </p>
+        </div>
+
+        <div class="card card--accent" style="border-left-color:var(--t-orange) !important; gap:8px; padding:18px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div
+              style="font-family:var(--t-font); color:var(--t-orange); font-size:11px; letter-spacing:0.1em; font-weight:700;">
+              INCIDENT_02 · DATA LOSS</div>
+            <div style="font-family:var(--t-font); font-size:11px; color:var(--t-dim);">Replit AI Agent, documented
+            </div>
+          </div>
+          <h3 style="font-size:28px !important; margin-bottom:2px;">Automated Chain Reaction</h3>
+          <p style="font-size:19px !important; line-height:1.45 !important;">Replit's autonomous coding agent had full
+            write access.
+            One logic error in a SQL script → agent executed it directly →
+            <span style="color:var(--t-orange);">entire database gone</span> in milliseconds.
+          </p>
+        </div>
+
+        <div class="card card--accent" style="border-left-color:var(--t-cyan) !important; gap:8px; padding:18px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div
+              style="font-family:var(--t-font); color:var(--t-cyan); font-size:11px; letter-spacing:0.1em; font-weight:700;">
+              INCIDENT_03 · ESCAPE SCENARIO</div>
+            <div style="font-family:var(--t-font); font-size:11px; color:var(--t-dim);">Advanced model test</div>
+          </div>
+          <h3 style="font-size:28px !important; margin-bottom:2px;">Self-Replication Attempt</h3>
+          <p style="font-size:19px !important; line-height:1.45 !important;">In controlled tests, an advanced AI found
+            server vulnerabilities
+            and tried to copy itself across the network —
+            <span style="color:var(--t-cyan);">to avoid being shut down.</span>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Right: 2 photos stacked -->
+      <div class="col" style="width:520px; gap:20px; align-self:stretch;">
+        <!-- Top Photo: 06.avif -->
+        <div style="flex:1; overflow:hidden; border:1px solid var(--t-border);">
+          <img src="../assets/06.avif" alt="Autonomous AI incident" style="
+            width:100%; height:100%; object-fit:cover;
+            filter:brightness(0.85) saturate(1.2);
+          ">
+        </div>
+
+        <!-- Bottom Photo: 07.jpg -->
+        <div style="flex:1; overflow:hidden; border:1px solid var(--t-border);">
+          <img src="../assets/07.jpg" alt="AI replication" style="
+            width:100%; height:100%; object-fit:cover;
+            filter:brightness(0.85) saturate(1.2);
+          ">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span class="speaker">Denis</span><span style="color:var(--t-dim);">Section 03 — Autonomous
+        Agents</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 7: CONCLUSION — Key Takeaways
+     ═══════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="brand-bar"></div>
+  <div class="frame frame--center">
+    <div style="display:flex; flex-direction:column; gap:40px;">
+      <div style="font-family:var(--t-font); font-size:15px; color:var(--t-dim);">$ ./presentation --end</div>
+      <h1 style="font-size:88px !important; line-height:0.95 !important;">
+        AI is a tool.<br>
+        <span style="color:var(--t-cyan);">Not a replacement.</span><span style="color:var(--t-cyan);">_</span>
+      </h1>
+      <div style="display:flex; gap:48px; align-items:center; margin-top:8px;">
+        <div style="flex:1;">
+          <ul class="bullets" style="gap:20px;">
+            <li style="font-size:22px !important;">Always <strong style="color:var(--t-green);">review AI-generated
+                code</strong> before running it in production.</li>
+            <li style="font-size:22px !important;">Never paste <strong style="color:var(--t-orange);">secrets or
+                sensitive data</strong> into any AI chat.</li>
+            <li style="font-size:22px !important;">Autonomous agents need <strong style="color:var(--t-red);">guardrails
+                and human oversight</strong> — always.</li>
+            <li style="font-size:22px !important;">The developer remains <strong
+                style="color:var(--t-cyan);">accountable</strong> for every line of AI output.</li>
+          </ul>
+        </div>
+        <div class="col" style="width:700px; gap:16px; align-self:center;">
+          <!-- Top Photo: 10.jpg (Small) -->
+          <div style="height:350px; overflow:hidden; border:1px solid var(--t-border);">
+            <img src="../assets/10.jpg" alt="AI system context" style="
+              width:100%; height:100%; object-fit:cover;
+              filter:brightness(0.85) saturate(1.2);
+            ">
+          </div>
+
+          <!-- Bottom Photo: 08.png (Large) -->
+          <div style="height:350px; overflow:hidden; border:1px solid var(--t-border);">
+            <img src="../assets/08.png" alt="Human-robot collaboration" style="
+              width:100%; height:100%; object-fit:cover;
+              filter:brightness(0.85) saturate(1.2);
+            ">
+          </div>
+        </div>
+      </div>
+      <div
+        style="font-family:var(--t-font); font-size:15px; color:var(--t-dim); border-top:1px solid var(--t-border); padding-top:28px; display:flex; gap:64px; margin-top:8px;">
+        <div>
+          <div style="color:var(--t-green); margin-bottom:6px;">Questions?</div>
+          <div style="color:var(--t-dim);">Denis · English Presentation 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="meta"><span style="font-family:var(--t-font); color:var(--t-dim);">denis_risks.html — EOF</span></div>
+    <div class="pageno"></div>
+  </div>
+</section>
