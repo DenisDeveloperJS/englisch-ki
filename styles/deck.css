@@ -243,6 +243,91 @@ section.slide.slide--brand {
 }
 .slide--dark .card h3, .slide--dark .card h4 { color: var(--white); }
 
+/* ---------- Horizontal timeline ---------- */
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  column-gap: 16px;
+  align-items: center;
+  min-height: 540px;
+  margin-top: 12px;
+  padding: 0 8px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--t-green) 7%, var(--t-cyan) 93%, transparent);
+  transform: translateY(-50%);
+  opacity: .85;
+}
+.timeline:not(:has(.timeline-item))::before { display: none; }
+.timeline-item {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: 230px 48px 230px;
+  align-items: center;
+  min-width: 0;
+}
+.timeline-node {
+  grid-row: 2;
+  justify-self: center;
+  width: 18px;
+  height: 18px;
+  border: 3px solid var(--t-green);
+  background: var(--t-bg);
+  box-shadow: 0 0 0 6px var(--t-bg);
+  border-radius: 50%;
+}
+.timeline-card {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 176px;
+  padding: 18px !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+section.slide .card.timeline-card {
+  border-top: 1px solid var(--t-border) !important;
+}
+.timeline-item--top .timeline-card {
+  grid-row: 1;
+  align-self: end;
+}
+.timeline-item--bottom .timeline-card {
+  grid-row: 3;
+  align-self: start;
+}
+.timeline-year {
+  color: var(--t-green);
+  font-family: var(--t-font);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+}
+.timeline-year--orange { color: var(--t-orange); }
+.timeline-year--cyan { color: var(--t-cyan); }
+.timeline-text {
+  color: var(--t-text);
+  font-size: 17px;
+  line-height: 1.25;
+  text-align: center;
+}
+.timeline-text span {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--t-dim);
+  font-size: 14px;
+  line-height: 1.25;
+}
+
 /* ---------- Status badges (service status) ---------- */
 .badge {
   display: inline-flex; align-items: center; gap: 8px;
